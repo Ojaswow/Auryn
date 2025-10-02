@@ -26,3 +26,28 @@ picker.addEventListener('change', (event) => {
     // Reset input so user can select the same files again
     picker.value = "";
 });
+// -------------------------------
+// Intro Video JS Code
+// -------------------------------
+let video = document.getElementById("intro-video");
+let splash = document.getElementById("splash");
+let content = document.getElementById("main-content");
+let playBtn = document.getElementById("play-btn");
+
+// Play button clicked
+playBtn.addEventListener("click", () => {
+  playBtn.style.display = "none";
+  video.style.display = "block";
+  video.play(); // sound will work now
+});
+
+// When video ends
+video.addEventListener("ended", () => {
+  splash.style.transition = "opacity 1s ease";
+  splash.style.opacity = 0;
+
+  setTimeout(() => {
+    splash.style.display = "none";
+    content.style.opacity = 1;
+  }, 1000);
+});
